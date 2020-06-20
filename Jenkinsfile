@@ -37,7 +37,7 @@ pipeline {
         }
         stage('Remove local images') {
             steps {
-                echo '=== Delete the local docker images ==='
+                echo '=== DDDelete the local docker images ==='
             }
         }
     }
