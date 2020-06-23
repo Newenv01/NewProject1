@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
-
+pipeline{
 def workspace
-angent any {
+    angent any {
     stage('Code Check'){
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'JenCred', url: 'https://github.com/Newenv01/NewProject1.git']]])
         workspace = pwd()
@@ -18,4 +18,5 @@ angent any {
     stage('Code Post'){
         build job: 'Code Post'
     }
+  }
 }
