@@ -2,7 +2,7 @@
 
 def workspace
 angent any {
-    stage('Code Checkou'){
+    stage('Code Check'){
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'JenCred', url: 'https://github.com/Newenv01/NewProject1.git']]])
         workspace = pwd()
     }
