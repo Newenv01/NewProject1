@@ -6,7 +6,6 @@ pipeline{
   stages{
     stage('Code Check'){
       steps{
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'JenCred', url: 'https://github.com/Newenv01/NewProject1.git']]])
         workspace = pwd()
         sh "mvn clean package"
       }
