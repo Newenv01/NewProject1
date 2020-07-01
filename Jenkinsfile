@@ -3,8 +3,7 @@ pipeline{
   stages{
     stage('Code Check'){
       steps{
-        dir
-        mkdir TestDir
+            echo "Test Node"
       }
     }
   }
