@@ -1,10 +1,5 @@
-pipeline{
-  agent any 
-  stages{
-    stage('Code Check'){
-      steps{
-            echo "Test Node"
-      }
-    }
-  }
+node {
+      stage('Code Check'){
+          echo "Test Node"
+     }
 }
