@@ -6,28 +6,28 @@ pipeline{
   stages{
     stage('Code Check'){
       steps{
-        workspace = pwd()
-        sh "mvn clean package"
+        dir
+        mkdir TestDir
       }
     }
     stage('Code Compile'){
       steps{
-        build job: 'Code Compile', parameters: [string(name: 'workspace', value: workspace)]   
+        dir TestDir
       }
     }
     stage('Code UnitTest'){
       steps{
-        build job: 'Code UnitTest', parameters: [string(name: 'workspace', value: workspace)]
+        cd TestDir
       }
     }
     stage('Code Deploy'){
       steps{
-        build job: 'Code Deploy', parameters: [string(name: 'workspace', value: workspace)]
+        echo "TestDir Created"
       }
     }
     stage('Code Post'){
       steps{
-        build job: 'Code Post'
+        echo "This is End"
       }
     }
   }
